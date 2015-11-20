@@ -235,7 +235,6 @@ var GridItem = React.createClass({
         onResizeStop={this.onResizeHandler('onResizeStop')}
         onResizeStart={this.onResizeHandler('onResizeStart')}
         onResize={this.onResizeHandler('onResize')}
-        
         >
         {child}
       </Resizable>
