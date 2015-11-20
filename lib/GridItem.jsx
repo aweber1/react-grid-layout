@@ -1,7 +1,7 @@
 'use strict';
 var React = require('react');
 var utils = require('./utils');
-var Draggable = require('react-draggable');
+var DraggableCore = require('react-draggable').DraggableCore;
 var Resizable = require('react-resizable').Resizable;
 var PureDeepRenderMixin = require('./mixins/PureDeepRenderMixin');
 
@@ -205,7 +205,7 @@ var GridItem = React.createClass({
         cancel={".react-resizable-handle " + this.props.cancel}
         useCSSTransforms={this.props.useCSSTransforms}
         >
-        {child}
+        <span>{child}</span>
       </Draggable>
     );
   },
@@ -234,8 +234,8 @@ var GridItem = React.createClass({
         maxConstraints={maxConstraints}
         onResizeStop={this.onResizeHandler('onResizeStop')}
         onResizeStart={this.onResizeHandler('onResizeStart')}
-        onResize={this.onResizeHandler('onResize')} 
-        {...child.props}
+        onResize={this.onResizeHandler('onResize')}
+        
         >
         {child}
       </Resizable>
