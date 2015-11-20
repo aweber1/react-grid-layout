@@ -1,7 +1,7 @@
 'use strict';
 var React = require('react');
 var utils = require('./utils');
-var DraggableCore = require('react-draggable').DraggableCore;
+var Draggable = require('react-draggable');
 var Resizable = require('react-resizable').Resizable;
 var PureDeepRenderMixin = require('./mixins/PureDeepRenderMixin');
 
