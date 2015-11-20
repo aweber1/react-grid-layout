@@ -1,4 +1,7 @@
 'use strict';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var React = require('react');
 var utils = require('./utils');
 var Draggable = require('react-draggable');
@@ -236,7 +239,7 @@ var GridItem = React.createClass({
     var maxConstraints = [Math.min(maxes.width, maxWidth), Math.min(maxes.height, Infinity)];
     return React.createElement(
       Resizable,
-      {
+      _extends({
         width: position.width,
         height: position.height,
         minConstraints: minConstraints,
@@ -244,7 +247,7 @@ var GridItem = React.createClass({
         onResizeStop: this.onResizeHandler('onResizeStop'),
         onResizeStart: this.onResizeHandler('onResizeStart'),
         onResize: this.onResizeHandler('onResize')
-      },
+      }, child.props),
       child
     );
   },

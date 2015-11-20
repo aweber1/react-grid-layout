@@ -234,7 +234,8 @@ var GridItem = React.createClass({
         maxConstraints={maxConstraints}
         onResizeStop={this.onResizeHandler('onResizeStop')}
         onResizeStart={this.onResizeHandler('onResizeStart')}
-        onResize={this.onResizeHandler('onResize')}
+        onResize={this.onResizeHandler('onResize')} 
+        {...child.props}
         >
         {child}
       </Resizable>
