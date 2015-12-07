@@ -1,17 +1,12 @@
 'use strict';
-var React = require('react');
+let React = require('react');
+let ReactDOM = require('react-dom');
 require('style!css!../css/styles.css');
 require('style!css!../examples/example-styles.css');
 typeof window !== "undefined" && (window.React = React); // for devtools
 
 module.exports = function(Layout) {
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var contentDiv = document.getElementById('content');
-    var gridProps = window.gridProps || {};
-    React.render(React.createElement(ExampleLayout, gridProps), contentDiv);
-  });
-
-  var ExampleLayout = React.createClass({
+  let ExampleLayout = React.createClass({
 
     getInitialState() {
       return {
@@ -43,6 +38,12 @@ module.exports = function(Layout) {
       );
     }
 
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    let contentDiv = document.getElementById('content');
+    let gridProps = window.gridProps || {};
+    ReactDOM.render(React.createElement(ExampleLayout, gridProps), contentDiv);
   });
 };
 

@@ -14,8 +14,23 @@ module.exports = {
     },
     module: {
       loaders: [
-        {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader?stage=0'},
-        {test: /\.jsx$/, exclude: /node_modules/, loader: 'react-hot-loader'}
+        {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader',
+          query: {
+            cacheDirectory: true,
+            plugins: ['react-transform'],
+            extra: {
+              'react-transform': {
+                transforms: [
+                  {
+                    transform: 'react-transform-hmr',
+                    imports: ['react'],
+                    locals: ['module']
+                  }
+                ]
+              }
+            }
+          }
+        }
       ]
     },
     plugins: [
@@ -27,7 +42,7 @@ module.exports = {
       }),
     ],
     debug: true,
-    devtool: 'eval',
+    devtool: "#cheap-module-source-map",
     publicPath: '/examples/',
     resolve: {
       extensions: ["", ".webpack.js", ".web.js", ".js", ".jsx"],
