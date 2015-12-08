@@ -3,3 +3,6 @@ dist/*
 !dist/react-grid-layout.min*
 !dist/*.html
 npm-debug.log
+build/
+/dist/react-grid-layout.min.js
+/dist/react-grid-layout.min.js.map
