@@ -270,14 +270,14 @@ var ReactGridLayout = (function (_React$Component) {
     /**
      * Given a grid item, set its style attributes & surround in a <Draggable>.
      * @param  {Element} child React element.
-     * @param  {Number}  i     Index of element.
+     * @param  {string}  i     Index of element.
      * @return {Element}       Element wrapped in draggable and properly placed.
      */
   }, {
     key: 'processGridItem',
     value: function processGridItem(child) {
       if (!child.key) return;
-      var i = parseInt(child.key, 10);
+      var i = child.key;
       var l = (0, _utils.getLayoutItem)(this.state.layout, i);
       if (!l) return;
 
@@ -458,7 +458,7 @@ module.exports = exports['default'];
 
 /**
  * When dragging starts
- * @param {Number} i Index of the child
+ * @param {String} i Id of the child
  * @param {Number} x X position of the move
  * @param {Number} y Y position of the move
  * @param {Event} e The mousedown event
@@ -468,7 +468,7 @@ module.exports = exports['default'];
 
 /**
  * Each drag movement create a new dragelement and move the element to the dragged location
- * @param {Number} i Index of the child
+ * @param {String} i Id of the child
  * @param {Number} x X position of the move
  * @param {Number} y Y position of the move
  * @param {Event} e The mousedown event
@@ -478,7 +478,7 @@ module.exports = exports['default'];
 
 /**
  * When dragging stops, figure out which position the element is closest to and update its x and y.
- * @param  {Number} i Index of the child.
+ * @param  {String} i Index of the child.
  * @param {Number} i Index of the child
  * @param {Number} x X position of the move
  * @param {Number} y Y position of the move

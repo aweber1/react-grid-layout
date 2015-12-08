@@ -162,7 +162,7 @@ function correctBounds(layout, bounds) {
  * Get a layout item by ID. Used so we can override later on if necessary.
  *
  * @param  {Array}  layout Layout array.
- * @param  {Number} id     ID
+ * @param  {String} id     ID
  * @return {LayoutItem}    Item at ID.
  */
 
@@ -360,7 +360,7 @@ function synchronizeLayoutWithChildren(initialLayout, children, cols, verticalCo
   for (var _i9 = 0, len = children.length; _i9 < len; _i9++) {
     var child = children[_i9];
     // Don't overwrite if it already exists.
-    var exists = getLayoutItem(initialLayout, parseInt(child.key || "1", /* FIXME satisfies Flow */10));
+    var exists = getLayoutItem(initialLayout, child.key || "1" /* FIXME satisfies Flow */);
     if (exists) {
       layout.push(exists);
       continue;
@@ -372,13 +372,13 @@ function synchronizeLayoutWithChildren(initialLayout, children, cols, verticalCo
       // Validated; add it to the layout. Bottom 'y' possible is the bottom of the layout.
       // This allows you to do nice stuff like specify {y: Infinity}
       if (verticalCompact) {
-        layout.push((0, _objectAssign2['default'])({}, g, { y: Math.min(bottom(layout), g.y), i: parseInt(child.key) }));
+        layout.push((0, _objectAssign2['default'])({}, g, { y: Math.min(bottom(layout), g.y), i: child.key }));
       } else {
-        layout.push((0, _objectAssign2['default'])({}, g, { y: g.y, i: parseInt(child.key) }));
+        layout.push((0, _objectAssign2['default'])({}, g, { y: g.y, i: child.key }));
       }
     } else {
       // Nothing provided: ensure this is added to the bottom
-      layout.push({ w: 1, h: 1, x: 0, y: bottom(layout), i: parseInt(child.key || "1", 10) });
+      layout.push({ w: 1, h: 1, x: 0, y: bottom(layout), i: child.key || "1" });
     }
   }
 
