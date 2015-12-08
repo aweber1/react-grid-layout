@@ -349,7 +349,7 @@ var GridItem = (function (_Component) {
       },
 
       // ID is nice to have for callbacks
-      i: _react2['default'].PropTypes.number.isRequired,
+      i: _react2['default'].PropTypes.string.isRequired,
 
       // If true, item will be repositioned when x/y/w/h change
       moveOnStartChange: _react2['default'].PropTypes.bool,
